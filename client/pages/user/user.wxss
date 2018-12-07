@@ -1,1 +1,139 @@
 /* pages/user/user.wxss */
+.user-card {
+  margin: 50rpx 27rpx 0;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  border-radius: 13rpx;
+}
+ .user-info {
+  display: flex;
+  align-items: center;
+  height: 200rpx;
+}
+ .user-head {
+  flex-shrink: 0;
+  margin-left: 53rpx;
+  height: 100rpx;
+  width: 100rpx;
+  background: #F5E069;
+  border-radius: 50%;
+}
+ .user-name {
+  flex: 1;
+  margin: 0 31rpx;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ .user-split {
+  height: 8rpx;
+  background: #F9F9F9;
+}
+ .user-options .option {
+  display: flex;
+  align-items: center;
+  margin-left: 46rpx;
+  margin-right: 27rpx;
+  height: 128rpx;
+}
+ .user-options .option-title {
+  flex: 1;
+  font-size: 30rpx;
+  color: rgba(29, 29, 38, 0.8);
+}
+ .user-options .option-icon {
+  width: 90rpx;
+  height: 90rpx;
+  padding-right: 18rpx;
+} 
+
+.comment-container {
+  border-top: 1rpx solid rgba(151, 151, 151, 0.2);
+}
+
+.comment-card {
+  display: flex;
+  margin: 30rpx 46rpx 0;
+  border-radius: 13rpx;
+  background: #f9f9f960;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.movie-image {
+  flex-shrink: 0;
+  width: 180rpx;
+  height: 100rpx;
+  padding-right: 35rpx;
+  border-radius: 13rpx;
+}
+
+.myComment-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.movie-name {
+  font-size: 35rpx;
+  line-height: 49rpx;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+.comment-text {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.9;
+}
+
+.comment-record {
+  display: flex;
+  opacity: 0.9;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  align-items: center;
+}
+
+.recordPlay-btn {
+  flex-shrink: 0;
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.recordPlay-text {
+  width: 140rpx;
+  text-align: center;
+}
+
+.comment-user {
+  display: flex;
+}
+
+.comment-avatar {
+  flex-shrink: 0;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 90rpx;
+}
+
+.comment-username {
+  padding-left: 16rpx;
+  flex-grow: 1;
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+
+.comment-card:last-child {
+  margin-bottom: 34rpx;
+}
+
+.card-empty {
+  border-top: 1rpx solid rgba(151, 151, 151, 0.2);
+  padding-left: 58rpx;
+  font-size: 30rpx;
+  color: rgba(29, 29, 38, 0.8);
+  line-height: 80rpx;
+}
+

@@ -1,1 +1,105 @@
 /* pages/commentList/commentList.wxss */
+.page {
+  height: auto;
+}
+
+.comment-page {
+  margin-top: 26rpx;
+}
+
+.comment-card {
+  margin-top: 5rpx;
+  background: #f9f9f9;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.comment-card:last-child {
+  margin-bottom: 68rpx;
+}
+
+.comment-user {
+  display: flex;
+  padding: 26rpx 30rpx 0;
+}
+
+.comment-avatar {
+  flex-shrink: 0;
+  width: 90rpx;
+  height: 90rpx;
+  padding-right: 16rpx;
+}
+
+.comment-username {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 35rpx;
+  line-height: 90rpx;
+}
+
+.comment-navigatetoDetail {
+  font-size: 30rpx;
+  line-height: 90rpx;
+}
+
+.comment-text {
+  padding: 16rpx 42rpx 20rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.9;
+}
+
+.comment-record {
+  display: flex;
+  opacity: 0.9;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  padding: 16rpx 42rpx 20rpx;
+  align-items: center;
+}
+
+.recordPlay-btn {
+  flex-shrink: 0;
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.recordPlay-text {
+  width: 140rpx;
+  text-align: center;
+}
+
+.comment-empty {
+  margin: 30rpx 30rpx 0;
+  background: #fff;
+  border-radius: 13rpx;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  text-align: center;
+  height: 320rpx;
+}
+
+.empty-image {
+  margin-top: 18rpx;
+  flex-shrink: 0;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.empty-text {
+  margin-top: 18rpx;
+  opacity: 0.8;
+  font-size: 34rpx;
+  line-height: 45rpx;
+}
+
+.back-btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-top: 1px solid rgba(151, 151, 151, 0.2);
+  justify-content: center;
+  height: 80rpx;
+  align-items: center;
+}

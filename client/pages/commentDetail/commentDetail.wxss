@@ -1,1 +1,143 @@
 /* pages/commentDetail/commentDetail.wxss */
+page {
+  height: 91%;
+}
+
+.comment-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 96%;
+  margin: 100rpx 30rpx 0;
+  border-radius: 13rpx;
+  background: #fff;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.comment-movieImage {
+  flex-shrink: 0;
+  width: 280rpx;
+  margin-top: -120rpx;
+  align-self: center;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.comment-movieName {
+  margin: 30rpx 30rpx 0;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.comment-area {
+  height: 296rpx;
+}
+
+.comment-record {
+  margin: 0 150rpx;
+  display: flex;
+  opacity: 0.7;
+  font-size: 37rpx;
+  line-height: 90rpx;
+  height: 110rpx;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.recordPlay-btn {
+  flex-shrink: 0;
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.recordPlay-text {
+  width: 180rpx;
+  text-align: center;
+}
+
+.comment-header {
+  margin: 0 30rpx;
+}
+
+.comment-userMeta {
+  display: flex;
+  align-items: center;
+}
+
+.comment-userAvatar {
+  flex-shrink: 0;
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 90rpx;
+}
+
+.comment-userName {
+  font-size: 36rpx;
+  line-height: 90rpx;
+  padding-left: 18rpx;
+}
+
+.comment-mark {
+  font-size: 90rpx;
+  margin: 10rpx 20rpx;
+  width: 50rpx;
+}
+
+.comment-text {
+  margin-top: -126rpx;
+  margin-left: 120rpx;
+  margin-right: 30rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.comment-record {
+  margin-top: -100rpx;
+  margin-left: 200rpx;
+}
+
+.recordPlay-btn {
+  flex-shrink: 0;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.comment-btn {
+  display: flex;
+  margin: 30rpx 55rpx 0;
+  justify-content: space-around;
+}
+
+.toMe-opr,.toCommentEdit-opr,.addMyFavorites-opr {
+  display: flex;
+  flex: 1;
+  height: 80rpx;
+  opacity: 0.7;
+  font-size: 32rpx;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13rpx;
+  background: #f9f9f9;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.toMe-opr,.toCommentEdit-opr {
+  margin-right: 40rpx;
+}
+
+.toMe-icon,.toCommentEdit-icon,.addMyFavorites-icon {
+  flex-shrink: 0;
+  width: 50rpx;
+  height: 50rpx;
+  padding-right: 26rpx;
+}
+
+.toMe-text,.toCommentEdit-text,.addMyFavorites-text {
+
+}
+
+action-sheet {
+  display: inline-block;
+  animation: kf-marque-animation 11.3s linear infinite;
+}

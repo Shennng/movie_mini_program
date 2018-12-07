@@ -1,2 +1,72 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view wx:if="{{!userInfo}}">
+  <view class="unlogin-card">
+    <view class="unlogin-head"></view>
+    <view class="unlogin-info">
+      <view class="unlogin-text">未登录</view>
+      <view class="unlogin-tips">点击微信登录享受更多服务</view>
+    </view>
+  </view>
+  <button wx:if="{{authType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+  <button wx:if="{{authType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
+</view>
+
+<view class="user-card" wx:else>
+  <view class="user-info">
+    <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
+    <view class="user-name">{{userInfo.nickName}}</view>
+  </view>
+  <view class="user-split"></view>
+  <view class="user-options">
+
+    <view class="option" bindtap="onTapShowMyComments">
+      <image class="option-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentEdit.png"></image>
+      <view class="option-title">我的影评</view>
+    </view>
+
+    <view class="comment-container" wx:if="{{isShowingMyComments && myComments.length}}">
+      <view class="comment-card" wx:for="{{myComments}}">
+        <image class="movie-image" src="{{item.image}}" data-index="{{index}}" data-option="myComments" bindtap="onTapNavigateToCommentDetail" mode="widthFix"></image>
+        <view class="myComment-meta">
+          <view class="movie-name">{{item.title}}</view>
+          <view class="comment-text" wx:if="{{item.category === '文字'}}">{{item.content}}</view>
+          <view class="comment-record" data-option="myComments" data-id="{{item.id}}" data-recordurl="{{item.content}}" bindtap="onTapRecordPlay" wx:else>
+            <image class="recordPlay-btn"  animation="{{isPlayMapForMyComments[item.id] ? animation : ''}}" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
+            <view class="recordPlay-text">{{isPlayMapForMyComments[item.id] ? "点击停止" : "点击聆听"}}</view>
+          </view>
+          <view class="comment-user">
+            <image class="comment-avatar" src="{{item.avatar}}"></image>
+            <view class="comment-username">{{item.username}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="card-empty" wx:if="{{isShowingMyComments && myComments.length===0}}">暂无，快去收藏影评吧~</view>
+
+  <view class="user-split"></view>
+
+    <view class="option" bindtap="onTapShowMyFavorites">
+      <image class="option-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/allMovies.png"></image>
+      <view class="option-title">我的收藏</view>
+    </view>
+
+    <view class="comment-container" wx:if="{{isShowingMyFavorites && myFavorites.length}}">
+      <view class="comment-card" wx:for="{{myFavorites}}">
+        <image class="movie-image" src="{{item.image}}" data-index="{{index}}" data-option="myFavorites" bindtap="onTapNavigateToCommentDetail" mode="widthFix"></image>
+        <view class="myComment-meta">
+          <view class="movie-name">{{item.title}}</view>
+          <view class="comment-text" wx:if="{{item.category === '文字'}}">{{item.content}}</view>
+          <view class="comment-record" data-option="myFavorites" data-id="{{item.id}}" data-recordurl="{{item.content}}" bindtap="onTapRecordPlay" wx:else>
+            <image class="recordPlay-btn"  animation="{{isPlayMapForMyFavorites[item.id] ? animation : ''}}" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
+            <view class="recordPlay-text">{{isPlayMapForMyFavorites[item.id] ? "点击停止" : "点击聆听"}}</view>
+          </view>
+          <view class="comment-user">
+            <image class="comment-avatar" src="{{item.avatar}}"></image>
+            <view class="comment-username">{{item.username}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="card-empty" wx:if="{{isShowingMyFavorites && myFavorites.length===0}}">暂无，快去收藏影评吧~</view>
+  </view>
+</view>

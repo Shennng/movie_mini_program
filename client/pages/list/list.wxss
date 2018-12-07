@@ -1,1 +1,38 @@
 /* pages/list/list.wxss */
+
+.movie-card {
+  display: flex;
+  margin: 30rpx 30rpx 0;
+  border-radius: 13rpx;
+  background: #fff;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.movie-card:last-child {
+  margin-bottom: 50rpx;
+}
+
+.movie-image {
+  flex-shrink: 0;
+  width: 180rpx;
+  height: 100rpx;
+  padding-right: 35rpx;
+  border-radius: 13rpx;
+}
+
+.movie-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.movie-name {
+  font-size: 35rpx;
+  line-height: 49rpx;
+  font-weight: bold;
+}
+
+.movie-type {
+  font-size: 27rpx;
+  line-height: 40rpx;
+}

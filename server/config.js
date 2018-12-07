@@ -11,6 +11,10 @@ const CONF = {
     // 是否使用腾讯云代理登录小程序
     useQcloudLogin: true,
 
+    qcloudAppId: '1258167024',
+    qcloudSecretId: 'AKIDfWg6WZnoLhG0t2cBVvVBxtxPvgbjkHzp',
+    qcloudSecretKey: 'LpbVhyqxAOy8Pspr9V5hQE78IVqFgMD9',
+
     /**
      * MySQL 配置，用来存储 session 和用户信息
      * 若使用了腾讯云微信小程序解决方案
@@ -32,9 +36,11 @@ const CONF = {
          */
         region: 'ap-guangzhou',
         // Bucket 名称
-        fileBucket: 'qcloudtest',
+        fileBucket: 'record',
         // 文件夹
-        uploadFolder: ''
+        uploadFolder: '',
+        //上传文件类型
+        mimetypes: ["image/jpeg", "video/mp3", "video/aac", "image/png"]
     },
 
     // 微信登录态有效期

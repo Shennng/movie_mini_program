@@ -1,3 +1,8 @@
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `movies`
+--
 CREATE TABLE `movies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -7,7 +12,11 @@ CREATE TABLE `movies` (
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
 
+--
+-- 表的结构 `comments`
+--
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(255) NOT NULL,
@@ -15,10 +24,21 @@ CREATE TABLE `comments` (
   `avatar` varchar(255) NOT NULL,
   `content` varchar(511) CHARACTER SET utf8 DEFAULT NULL,
   `movie_id` int(11) NOT NULL,
+  `category` varchar(255) NOT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
 
+--
+-- 表的结构 `favorites`
+--
+create TABLE `favorites` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET @IMAGE_BASE_URL = "https://movies-1258167024.cos.ap-guangzhou.myqcloud.com/";
 
@@ -38,3 +58,18 @@ INSERT INTO `movies` (`id`, `image`, `title`, `category`, `description`) VALUES
 (13, CONCAT(@IMAGE_BASE_URL, 'p1461851991.jpg'), '机器人总动员', '爱情 / 科幻 / 动画 / 冒险', '公元2805年，人类文明高度发展，却因污染和生活垃圾大量增加使得地球不再适于人类居住。地球人被迫乘坐飞船离开故乡，进行一次漫长无边的宇宙之旅。临行前他们委托Buynlarge的公司对地球垃圾进行清理，该公司开发了名为WALL·E（Waste Allocation Loa d Lifters – Earth 地球废品分装员）的机器人担当此重任。这些机器人按照程序日复一日、年复一年辛勤工作，但随着时间的流逝和恶劣环境的侵蚀，WALL·E们接连损坏、停止运动。最后只有一个仍在进行这项似乎永无止境的工作。经历了漫长的岁月，它开始拥有了自己的意识。它喜欢将收集来的宝贝小心翼翼藏起，喜欢收工后看看几百年前的歌舞片，此外还有一只蟑螂朋友作伴。直到有一天，一艘来自宇宙的飞船打破了它一成不变的生活……'),
 (14, CONCAT(@IMAGE_BASE_URL, 'p1910824340.jpg'), '死亡诗社', '剧情', '威尔顿预备学院以其沉稳凝重的教学风格和较高的升学率闻名，作为其毕业班的学生，理想就是升入名校。新学期文学老师约翰·基汀（罗宾·威廉姆斯 饰）的到来如同一阵春风，一反传统名校的严肃刻板。基汀带学生们在校史楼内聆听死亡的声音，反思生的意义 ；让男生们在绿茵场上宣读自己的理想；鼓励学生站在课桌上，用新的视角俯瞰世界。老师自由发散式的哲学思维让学生内心产生强烈的共鸣，他们渐渐学会自己思考与求索，勇敢的追问人生的路途，甚至违反门禁，成立死亡诗社，在山洞里击节而歌！基汀教授、基汀老师、基汀队长，他的教育宛若春风化雨，润物无声的留在每个人心里…'),
 (15, CONCAT(@IMAGE_BASE_URL, 'p2206088801.jpg'), '星际穿越', '剧情 / 科幻 / 冒险', '近未来的地球黄沙遍野，小麦、秋葵等基础农作物相继因枯萎病灭绝，人类不再像从前那样仰望星空，放纵想象力和灵感的迸发，而是每日在沙尘暴的肆虐下倒数着所剩不多的光景。在家务农的前NASA宇航员库珀（马修·麦康纳 Matthew McConaughey 饰）接连在女儿墨菲（麦肯吉·弗依 Mackenzie Foy 饰）的书房发现奇怪的重力场现象，随即得知在某个未知区域内前NASA成员仍秘密进行一个拯救人类的计划。多年以前土星附近出现神秘虫洞，NASA借机将数名宇航员派遣到遥远的星系寻找适合居住的星球。在布兰德教授（迈克尔·凯恩 Michael Caine 饰）的劝说下，库珀忍痛告别了女儿，和其他三名专家教授女儿艾米莉亚·布兰德（安妮·海瑟薇 Anne Hathaway 饰）、罗米利（大卫·吉雅西 David Gyasi 饰）、多伊尔（韦斯·本特利 Wes Bentley 饰）搭乘宇宙飞船前往目前已知的最有希望的三颗星球考察。他们穿越遥远的星系银河，感受了一小时七年光阴的沧海桑田，窥见了未知星球和黑洞的壮伟与神秘。在浩瀚宇宙的绝望而孤独角落，总有一份超越了时空的笃定情怀将他们紧紧相连……');
+
+INSERT INTO `comments` (`id`, `user`, `username`, `avatar`, `content`, `movie_id`, `category`, `create_time`) VALUES
+(1, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'good', 3, '文字', '2018-11-30 14:45:39'),
+(2, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'ss', 3, '文字', '2018-11-30 14:48:45'),
+(3, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'https://record-1258167024.cos.ap-guangzhou.myqcloud.com/1543674810710-MRy6Y6Khi.mp3', 3, '音频', '2018-12-01 22:33:36'),
+(4, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'https://record-1258167024.cos.ap-guangzhou.myqcloud.com/1543674833845-CalgTd76d.mp3', 3, '音频', '2018-12-01 22:33:57'),
+(5, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'https://record-1258167024.cos.ap-guangzhou.myqcloud.com/1543675026931-c4RX14tfI.mp3', 3, '音频', '2018-12-01 22:37:09'),
+(6, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'emmmmmm', 6, '文字', '2018-12-01 22:48:49'),
+(7, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'https://record-1258167024.cos.ap-guangzhou.myqcloud.com/1543675853299-pDjqRekO2.mp3', 2, '音频', '2018-12-01 22:50:56'),
+(8, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'https://record-1258167024.cos.ap-guangzhou.myqcloud.com/1543680131796-Hfz7P1Pkk.mp3', 3, '音频', '2018-12-02 00:02:36'),
+(9, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'https://record-1258167024.cos.ap-guangzhou.myqcloud.com/1543712470105-ecYk__CF9.mp3', 13, '音频', '2018-12-02 09:01:39'),
+(10, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'goodehghvvvvvvvvvvvh发挥出厨房和财富举几个几个不可不好', 1, '文字', '2018-12-02 12:09:12'),
+(11, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'https://record-1258167024.cos.ap-guangzhou.myqcloud.com/1543724378108-pQIPmCPU7.mp3', 1, '音频', '2018-12-02 12:19:57'),
+(12, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'https://record-1258167024.cos.ap-guangzhou.myqcloud.com/1543731178616-kUazxUXhe.mp3', 6, '音频', '2018-12-02 14:13:13'),
+(13, 'oSl1K5EhfrkbiH-O0E0Nn0DYLKy0', '王S', 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ericoltrNTUSmAqJnolOQYX8PiamQP9PADblFbnaH7ib9C2bEqreTQUS9eegKq3Ftn4rEoHYopwHegQw/132', 'https://record-1258167024.cos.ap-guangzhou.myqcloud.com/1543741297248-4ltTVkXqk.mp3', 11, '音频', '2018-12-02 17:02:12');

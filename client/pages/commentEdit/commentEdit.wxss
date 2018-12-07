@@ -1,1 +1,167 @@
 /* pages/commentEdit/commentEdit.wxss */
+page {
+  height: 91%;
+}
+
+.edit-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 96%;
+  margin: 100rpx 30rpx 0;
+  border-radius: 13rpx;
+  background: #fff;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.edit-movieImage {
+  flex-shrink: 0;
+  width: 280rpx;
+  margin-top: -120rpx;
+  align-self: center;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.edit-movieName {
+  margin: 30rpx 30rpx 0;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.edit-area,.preview-area {
+  height: 296rpx;
+}
+
+.edit-textarea {
+  margin: 0 30rpx;
+  border-radius: 13rpx;
+  background: #f9f9f9;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  padding: 20rpx 25rpx;
+  width: auto;
+  height: 296rpx;
+}
+
+.editRecord-btn,.preview-record {
+  margin: 0 150rpx;
+  display: flex;
+  opacity: 0.7;
+  font-size: 37rpx;
+  line-height: 90rpx;
+  height: 110rpx;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.editRecord-icon,.recordPlay-btn {
+  flex-shrink: 0;
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.recordPlay-text {
+  width: 180rpx;
+  text-align: center;
+}
+
+.editRecord-text {
+  width: 250rpx;
+  text-align: center;
+}
+
+.finished-btn {
+  opacity: 0.7;
+  border-radius: 13rpx;
+  background: #62b900;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.preview-header {
+  margin: 0 30rpx;
+}
+
+.preview-userMeta {
+  display: flex;
+  align-items: center;
+}
+
+.preview-userAvatar {
+  flex-shrink: 0;
+  height: 90rpx;
+  width: 90rpx;
+  border-radius: 90rpx;
+}
+
+.preview-userName {
+  font-size: 36rpx;
+  line-height: 90rpx;
+  padding-left: 18rpx;
+}
+
+.preview-mark {
+  font-size: 90rpx;
+  margin: 10rpx 20rpx;
+}
+
+.preview-text {
+  margin-top: -126rpx;
+  margin-left: 120rpx;
+  margin-right: 30rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.preview-record {
+  margin-top: -100rpx;
+  margin-left: 200rpx;
+}
+
+.recordPlay-btn {
+  flex-shrink: 0;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.preview-btn {
+  display: flex;
+  margin: 30rpx 55rpx 0;
+  justify-content: space-around;
+}
+
+.reEdit-opr,.publish-opr {
+  display: flex;
+  flex: 1;
+  height: 80rpx;
+  opacity: 0.7;
+  font-size: 32rpx;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13rpx;
+  background: #f9f9f9;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.reEdit-opr {
+  margin-right: 40rpx;
+}
+
+.reEdit-icon,.publish-icon {
+  flex-shrink: 0;
+  width: 50rpx;
+  height: 50rpx;
+  padding-right: 10rpx;
+}
+
+.reEdit-text,.publish-text {
+
+}
+
+
+
+
+
+

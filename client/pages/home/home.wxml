@@ -1,2 +1,20 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="hot-card">
+  <image class="hot-image" src="{{hotMovie.image}}" bindtap='onTapToThisMovie' mode="widthFix"></image>
+  <view class="hot-name" bindtap='onTapToThisMovie'>{{hotMovie.title}}</view>
+  <view class="hot-meta">
+    <image class="hot-avatar" src="{{hotComment.avatar}}"></image>
+    <view class="hot-text" bindtap="onTapToThisComment">{{hotComment.username}} 向你推荐了这部电影</view>
+  </view>
+</view>
+
+<view class="home-btn">
+  <view class="toMovieList-opr" bindtap='onTapToList'>
+      <image class="toMovieList-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/allMovies.png"></image>
+    <view class="toMovieList-text">热门</view>
+  </view>
+  <view class="toUser-opr" bindtap='onTapToUser'>
+      <image class="toUser-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
+    <view class="toUser-text">我的</view>
+  </view>
+</view>

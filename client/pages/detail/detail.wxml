@@ -1,2 +1,23 @@
 <!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class="detail-card">
+  <image class="detail-image" src="{{movieDetail.image}}" mode="widthFix"></image>
+  <view class="detail-name">{{movieDetail.title}}</view>
+  <view class="detail-description">{{movieDetail.description}}</view>
+  <view class="detail-btn">
+    <view class="toCommentList-opr" bindtap="onTapToCommentList">
+      <image class="toCommentList-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png"></image>
+      <view class="toCommentList-text">所有影评</view>
+    </view>
+    <view class="toCommentEdit-opr" bindtap='actionSheetTap'>
+      <image class="toCommentEdit-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentEdit.png"></image>
+      <view class="toCommentEdit-text">添加影评</view>
+    </view>
+  </view>
+</view>
+
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+  <block wx:for="{{actionSheetItems}}">
+    <action-sheet-item class="item" bindtap="bindItemTap" data-name="{{item}}">{{item}}</action-sheet-item>
+  </block>
+  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>

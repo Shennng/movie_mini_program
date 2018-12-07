@@ -1,1 +1,73 @@
 /* pages/detail/detail.wxss */
+page {
+  height: 91%;
+}
+
+.detail-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 96%;
+  margin: 100rpx 30rpx 0;
+  border-radius: 13rpx;
+  background: #fff;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.detail-image {
+  flex-shrink: 0;
+  width: 280rpx;
+  margin-top: -120rpx;
+  align-self: center;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.detail-name {
+  margin: 30rpx 30rpx 0;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.detail-description {
+  margin: 30rpx 75rpx 0;
+  text-align: justify;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.8;
+}
+
+.detail-btn {
+  display: flex;
+  margin: 30rpx 55rpx 0;
+  justify-content: space-around;
+}
+
+.toCommentList-opr,.toCommentEdit-opr {
+  display: flex;
+  flex: 1;
+  height: 80rpx;
+  opacity: 0.7;
+  font-size: 32rpx;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13rpx;
+  background: #f9f9f9;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.toCommentList-opr {
+  margin-right: 40rpx;
+}
+
+.toCommentEdit-icon,.toCommentList-icon {
+  flex-shrink: 0;
+  width: 50rpx;
+  height: 50rpx;
+  padding-right: 10rpx;
+}
+
+action-sheet {
+  display: inline-block;
+  animation: kf-marque-animation 11.3s linear infinite;
+}

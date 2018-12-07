@@ -1,2 +1,8 @@
 <!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
+<view class="movie-card" wx:for="{{movieList}}" bindtap="onTapToDetail" data-id="{{index}}">
+  <image class="movie-image" src="{{item.image}}" mode="widthFix"></image>
+  <view class="movie-meta">
+    <view class="movie-name">{{item.title}}</view>
+    <view class="movie-type">类型：{{item.category}}</view>
+  </view>
+</view>

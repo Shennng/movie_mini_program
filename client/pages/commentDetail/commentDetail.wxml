@@ -1,2 +1,57 @@
 <!--pages/commentDetail/commentDetail.wxml-->
-<text>pages/commentDetail/commentDetail.wxml</text>
+<view wx:if="{{!userInfo}}">
+  <view class="unlogin-card">
+    <view class="unlogin-head"></view>
+    <view class="unlogin-info">
+      <view class="unlogin-text">未登录</view>
+      <view class="unlogin-tips">登陆后查看影评详情</view>
+    </view>
+  </view>
+  <button wx:if="{{authType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+  <button wx:if="{{authType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
+</view>
+
+<view class="comment-card" wx:else>
+  <image class="comment-movieImage" src="{{movieDetail.image}}" mode="widthFix"></image>
+  <view class="comment-movieName">{{movieDetail.title}}</view>
+
+  <view class="comment-area">
+    <view class="comment-header">
+      <view class="comment-userMeta">
+        <image class="comment-userAvatar" src="{{commentDetail.avatar}}"></image>
+        <view class="comment-userName">{{commentDetail.username}} 的影评</view>
+      </view>
+      <view class="comment-mark">"</view>
+    </view>
+    <view class="comment-text" wx:if="{{commentDetail.category === '文字'}}">
+      <view style="width: auto;">{{commentDetail.content}}</view>
+    </view>
+    <view class="comment-record" bindtap="onTapRecordPlay" wx:else>
+      <image class="recordPlay-btn" animation="{{animation}}" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
+      <view class="recordPlay-text">{{isPlay ? "Stop" : "Play"}}</view>
+    </view>
+  </view>
+
+  <view class="comment-btn">
+    <view class="toCommentEdit-opr" wx:if="{{!userCommentDetail}}" bindtap='actionSheetTap'>
+      <image class="toCommentEdit-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png"></image>
+      <view class="toCommentEdit-text">添加影评</view>
+    </view>
+    <view class="toMe-opr" wx:else bindtap='onTapToMe'>
+      <image class="toMe-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png"></image>
+      <view class="toMe-text">看我的</view>
+    </view>
+    <view class="addMyFavorites-opr" bindtap='onTapAddMyFavorites' data-id="{{commentDetail.id}}">
+      <image class="addMyFavorites-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentEdit.png"></image>
+      <view class="addMyFavorites-text">收藏影评</view>
+    </view>
+  </view>
+</view>
+
+
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+  <block wx:for="{{actionSheetItems}}">
+    <action-sheet-item class="item" bindtap="bindItemTap" data-name="{{item}}">{{item}}</action-sheet-item>
+  </block>
+  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>

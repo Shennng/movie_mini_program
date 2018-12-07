@@ -1,66 +1,68 @@
 // pages/home/home.js
+const qcloud = require("../../vendor/wafer2-client-sdk/index.js")
+const config = require("../../config.js")
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    hotMovie: {},
+    hotComment: {}
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.getHot()
   },
+  getHot(callback) {
+    qcloud.request({
+      url: config.service.hotCommentUrl,
+      success: res => {
+        let data = res.data
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+        if (!data.code) {
+          let hotData = data.data
+          this.setData({
+            hotMovie: hotData.hotMovie,
+            hotComment: hotData.hotComment
+          })
+        }
 
+        callback && callback()
+      },
+      fail: res => {
+
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onTapToList() {
+    wx.navigateTo({
+      url: '../list/list',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  onTapToUser() {
+    wx.navigateTo({
+      url: '../user/user',
+    })
   },
+  onTapToThisMovie() {
+    let movieDetail = this.data.hotMovie
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+    wx.navigateTo({
+      url: `../detail/detail?id=${movieDetail.id}&title=${movieDetail.title}&image=${movieDetail.image}&description=${movieDetail.description}&type=${movieDetail.category}`,
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  onTapToThisComment() {
+    let data = this.data
+    let movieDetail = data.hotMovie
+    let id = data.hotComment.id
+    
+    wx.navigateTo({
+      url: `../commentDetail/commentDetail?movie_id=${movieDetail.id}&id=${id}&title=${movieDetail.title}&image=${movieDetail.image}`,
+    })
+  },
   onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    this.getHot(() => {
+      wx.showToast({
+        title: '刷新成功',
+      })
+      wx.stopPullDownRefresh()
+    })
   }
 })

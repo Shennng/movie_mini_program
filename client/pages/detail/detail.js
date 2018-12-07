@@ -1,66 +1,53 @@
 // pages/detail/detail.js
+const qcloud = require("../../vendor/wafer2-client-sdk/index.js")
+const config = require("../../config.js")
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    movieDetail: {},
+    actionSheetHidden: true,
+    actionSheetItems: ['文字', '音频']
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    let movieDetail = options
+    let desc = movieDetail.description
+    if (desc.length > 200) {
+      movieDetail.description = desc.slice(0,200) + "..."
+    }
+    this.setData({
+      movieDetail
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  actionSheetTap(event) {
+    this.setData({
+      actionSheetHidden: !this.data.actionSheetHidden
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  actionSheetChange(event) {
+    this.setData({
+      actionSheetHidden: !this.data.actionSheetHidden
+    })
   },
+  bindItemTap(event) {
+    let editType = event.currentTarget.dataset.name
+    let movieDetail = this.data.movieDetail
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+    wx.navigateTo({
+      url: `../commentEdit/commentEdit?editType=${editType}&id=${movieDetail.id}&title=${movieDetail.title}&image=${movieDetail.image}`,
+    })
 
+    this.setData({
+      actionSheetHidden: !this.data.actionSheetHidden
+    })
   },
+  onTapToCommentList() {
+    let movieDetail = this.data.movieDetail
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+    wx.navigateTo({
+      url: `../commentList/commentList?movie_id=${movieDetail.id}&title=${movieDetail.title}&image=${movieDetail.image}`,
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    wx.stopPullDownRefresh()
   }
 })

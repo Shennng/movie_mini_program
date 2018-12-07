@@ -21,7 +21,23 @@ var config = {
         tunnelUrl: `${host}/weapp/tunnel`,
 
         // 上传图片接口
-        uploadUrl: `${host}/weapp/upload`
+        uploadUrl: `${host}/weapp/upload`,
+
+        //首页数据接口
+        hotCommentUrl:`${host}/weapp/hot`,
+
+        //电影列表接口
+        movieUrl: `${host}/weapp/movie`,
+
+        //评论获取、提交接口
+        commentUrl: `${host}/weapp/comment`,
+
+        //是否评论？
+        isCommentUrl: `${host}/weapp/iscomment`,
+
+        //收藏添加、获取接口
+        favoriteUrl: `${host}/weapp/favorite`,
+
     }
 };
 

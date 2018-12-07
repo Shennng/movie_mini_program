@@ -12,7 +12,8 @@
     "backgroundColor":"#F6F6F6",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "看看侃侃电影",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
   }
 }

@@ -1,2 +1,22 @@
 <!--pages/commentList/commentList.wxml-->
-<text>pages/commentList/commentList.wxml</text>
+<view class="comment-page" wx:if="{{commentList.length}}">
+  <view class="comment-card" wx:for="{{commentList}}">
+      <view class="comment-user">
+        <image class="comment-avatar" src="{{item.avatar}}"></image>
+        <view class="comment-username">{{item.username}}</view>
+        <view class="comment-navigatetoDetail" data-index="{{index}}" bindtap="onTapNavigateToCommentDetail">查看详情 ></view>
+      </view>
+      <view class="comment-text" wx:if="{{item.category === '文字'}}">{{item.content}}</view>
+      <view class="comment-record" data-id="{{item.id}}" data-recordurl="{{item.content}}" bindtap="onTapRecordPlay" wx:else>
+        <image class="recordPlay-btn"  animation="{{isPlayMap[item.id] ? animation : ''}}" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
+        <view class="recordPlay-text">{{isPlayMap[item.id] ? "点击停止" : "点击聆听"}}</view>
+      </view>
+  </view>
+</view>
+
+<view class="comment-empty" wx:else>
+  <image class="empty-image" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/reedit.png"></image>
+  <view class="empty-text">暂无影评</view>
+</view>
+
+<navigator class="back-btn" url="../home/home">回到首页</navigator>

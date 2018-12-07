@@ -1,2 +1,53 @@
 <!--pages/commentEdit/commentEdit.wxml-->
-<text>pages/commentEdit/commentEdit.wxml</text>
+<view wx:if="{{!userInfo}}">
+  <view class="unlogin-card">
+    <view class="unlogin-head"></view>
+    <view class="unlogin-info">
+      <view class="unlogin-text">未登录</view>
+      <view class="unlogin-tips">点击微信登录享受更多服务</view>
+    </view>
+  </view>
+  <button wx:if="{{authType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+  <button wx:if="{{authType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
+</view>
+
+<view class="edit-card" wx:else>
+  <image class="edit-movieImage" src="{{movieDetail.image}}" mode="widthFix"></image>
+  <view class="edit-movieName">{{movieDetail.title}}</view>
+
+  <view class="edit-area" wx:if="{{!isPreview}}">
+    <textarea class="edit-textarea" wx:if="{{type === '文字'}}" placeholder="请输入..." bindinput='onInput'/>
+    <view class="editRecord-btn" wx:else bindlongtap="longTapRecord" bindtouchstart="touchRecordStart" bindtouchend="touchRecordEnd">
+      <image class="editRecord-icon" src="{{record.iconPath}}"></image>
+      <view class="editRecord-text">{{record.text}}</view> 
+    </view>
+    <button wx:if="{{!authRecord}}" class="openSetting-btn" open-type='openSetting' bindopensetting="checkRecordSetting">开启录音权限</button>
+  </view>
+  <button class="finished-btn" wx:if="{{!isPreview}}" bindtap='onTapPreview'>完成</button>
+
+  <view class="preview-area" wx:else>
+    <view class="preview-header">
+      <view class="preview-userMeta">
+        <image class="preview-userAvatar" src="{{userInfo.avatarUrl}}"></image>
+        <view class="preview-userName">{{userInfo.nickName}} 的影评</view>
+      </view>
+      <view class="preview-mark">"</view>
+    </view>
+    <view class="preview-text" wx:if="{{type === '文字'}}">{{commentText}}</view>
+    <view class="preview-record" bindtap="onTapRecordPlay" wx:else>
+      <image class="recordPlay-btn"  animation="{{animation}}" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
+      <view class="recordPlay-text">{{isPlay ? "点击停止" : "点击聆听"}}</view>
+    </view>
+  </view>
+
+  <view class="preview-btn" wx:if="{{isPreview}}">
+    <view class="reEdit-opr" bindtap='onTapReEdit'>
+      <image class="reEdit-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png"></image>
+      <view class="reEdit-text">重新编辑</view>
+    </view>
+    <view class="publish-opr" bindtap='onTapCommit'>
+      <image class="publish-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentEdit.png"></image>
+      <view class="publish-text">发布影评</view>
+    </view>
+  </view>
+</view>

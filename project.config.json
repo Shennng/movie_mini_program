@@ -11,6 +11,62 @@
 		"newFeature": true
 	},
 	"appid": "wxeba7546549347f3b",
-	"projectname": "movie_mini_program",
-	"condition": {}
+	"projectname": "Movie_now",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "list",
+					"pathName": "pages/list/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/detail/detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "commentList",
+					"pathName": "pages/commentList/commentList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "commentEdit",
+					"pathName": "pages/commentEdit/commentEdit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "commentDetail",
+					"pathName": "pages/commentDetail/commentDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user"
+				}
+			]
+		}
+	}
 }
