@@ -151,13 +151,13 @@ page {
 
 .reEdit-icon,.publish-icon {
   flex-shrink: 0;
-  width: 50rpx;
-  height: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
   padding-right: 10rpx;
 }
 
-.reEdit-text,.publish-text {
-
+.openSetting-btn {
+  margin: 10rpx 200rpx 0;
 }
 
 

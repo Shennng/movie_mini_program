@@ -70,3 +70,5 @@
     <view class="card-empty" wx:if="{{isShowingMyFavorites && myFavorites.length===0}}">暂无，快去收藏影评吧~</view>
   </view>
 </view>
+
+<navigator class="back-btn" url="../home/home">回到首页</navigator>

@@ -35,18 +35,18 @@
     </view>
     <view class="preview-text" wx:if="{{type === '文字'}}">{{commentText}}</view>
     <view class="preview-record" bindtap="onTapRecordPlay" wx:else>
-      <image class="recordPlay-btn"  animation="{{animation}}" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
+      <image class="recordPlay-btn"  animation="{{animation}}" src="{{isPlay ? 'https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/recording.png' : 'https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/play.png'}}"></image>
       <view class="recordPlay-text">{{isPlay ? "点击停止" : "点击聆听"}}</view>
     </view>
   </view>
 
   <view class="preview-btn" wx:if="{{isPreview}}">
     <view class="reEdit-opr" bindtap='onTapReEdit'>
-      <image class="reEdit-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png"></image>
+      <image class="reEdit-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/reedit.png"></image>
       <view class="reEdit-text">重新编辑</view>
     </view>
     <view class="publish-opr" bindtap='onTapCommit'>
-      <image class="publish-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentEdit.png"></image>
+      <image class="publish-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/publish.png"></image>
       <view class="publish-text">发布影评</view>
     </view>
   </view>

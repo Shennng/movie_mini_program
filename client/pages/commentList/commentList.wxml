@@ -8,14 +8,14 @@
       </view>
       <view class="comment-text" wx:if="{{item.category === '文字'}}">{{item.content}}</view>
       <view class="comment-record" data-id="{{item.id}}" data-recordurl="{{item.content}}" bindtap="onTapRecordPlay" wx:else>
-        <image class="recordPlay-btn"  animation="{{isPlayMap[item.id] ? animation : ''}}" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
+        <image class="recordPlay-btn"  animation="{{isPlayMap[item.id] ? animation : ''}}" src="{{isPlayMap[item.id] ? 'https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/recording.png' : 'https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/play.png'}}"></image>
         <view class="recordPlay-text">{{isPlayMap[item.id] ? "点击停止" : "点击聆听"}}</view>
       </view>
   </view>
 </view>
 
 <view class="comment-empty" wx:else>
-  <image class="empty-image" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/reedit.png"></image>
+  <image class="empty-image" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
   <view class="empty-text">暂无影评</view>
 </view>
 

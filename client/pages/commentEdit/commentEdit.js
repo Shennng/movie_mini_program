@@ -22,7 +22,7 @@ Page({
     // 录音按钮相关 以及 录音临时文件地址
     record: {
       text: "长按录音",
-      iconPath: "https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png",
+      iconPath: "https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/record.png",
       tempFilePath: ""
     },
     commentRecord: "",  //录音文件地址
@@ -138,7 +138,7 @@ Page({
       this.setData({
         record: {
           text: "松开结束录音",
-          iconPath: "https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentEdit.png"
+          iconPath: "https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/recording.png"
         }
       })
     })
@@ -157,7 +157,7 @@ Page({
       this.setData({
         record: {
           text: "长按录音",
-          iconPath: "https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png",
+          iconPath: "https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/record.png",
           tempFilePath
         }
       })
@@ -216,7 +216,7 @@ Page({
       commentext: "",
       record: {
         text: "长按录音",
-        iconPath: "https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png",
+        iconPath: "https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/record.png",
         tempFilePath: ""
       }
     })

@@ -137,3 +137,15 @@
   line-height: 80rpx;
 }
 
+.back-btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-top: 1px solid rgba(151, 151, 151, 0.2);
+  justify-content: center;
+  height: 100rpx;
+  align-items: center;
+}

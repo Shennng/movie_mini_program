@@ -128,9 +128,9 @@ page {
 
 .toMe-icon,.toCommentEdit-icon,.addMyFavorites-icon {
   flex-shrink: 0;
-  width: 50rpx;
-  height: 50rpx;
-  padding-right: 26rpx;
+  width: 70rpx;
+  height: 70rpx;
+  padding-right: 10rpx;
 }
 
 .toMe-text,.toCommentEdit-text,.addMyFavorites-text {

@@ -27,22 +27,22 @@
       <view style="width: auto;">{{commentDetail.content}}</view>
     </view>
     <view class="comment-record" bindtap="onTapRecordPlay" wx:else>
-      <image class="recordPlay-btn" animation="{{animation}}" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/user.png"></image>
+      <image class="recordPlay-btn" animation="{{animation}}" src="{{isPlay ? 'https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/recording.png' : 'https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/play.png'}}"></image>
       <view class="recordPlay-text">{{isPlay ? "Stop" : "Play"}}</view>
     </view>
   </view>
 
   <view class="comment-btn">
     <view class="toCommentEdit-opr" wx:if="{{!userCommentDetail}}" bindtap='actionSheetTap'>
-      <image class="toCommentEdit-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png"></image>
+      <image class="toCommentEdit-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentEdit.png"></image>
       <view class="toCommentEdit-text">添加影评</view>
     </view>
     <view class="toMe-opr" wx:else bindtap='onTapToMe'>
-      <image class="toMe-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png"></image>
+      <image class="toMe-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/seeMe.png"></image>
       <view class="toMe-text">看我的</view>
     </view>
     <view class="addMyFavorites-opr" bindtap='onTapAddMyFavorites' data-id="{{commentDetail.id}}">
-      <image class="addMyFavorites-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentEdit.png"></image>
+      <image class="addMyFavorites-icon" src="https://icon-1258167024.cos.ap-guangzhou.myqcloud.com/commentList.png"></image>
       <view class="addMyFavorites-text">收藏影评</view>
     </view>
   </view>

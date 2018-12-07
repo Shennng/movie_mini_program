@@ -62,8 +62,8 @@ page {
 
 .toCommentEdit-icon,.toCommentList-icon {
   flex-shrink: 0;
-  width: 50rpx;
-  height: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
   padding-right: 10rpx;
 }
 
